@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+	<title> Title </title>
+</head>
+    
+     <style>
+         
+         
+       margin: 0;
+      overflow: hidden;
+    }
+
+    #page2 {
+      height: 100vh;
+      background-color: #f0f0f0;
+      position: relative;
+    }
+
+    .emoji {
+      position: absolute;
+      font-size: 2em;
+    }
+         
+         .container{
+             
+             display: flex;
+             align-content: center;
+             justify-content: center;
+             text-align: center;
+             justify-items: center;
+             
+             
+         }
+  </style>
+  
+  
+  
+	<body>
+    <div class="container">
+	   <div  id="page2">
+      <h1>good things happen <br> when you say hello</h1>
+    </div>
+
+     
+    </div>
+  </body>
+
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js" integrity="sha512-AMl4wfwAmDM1lsQvVBBRHYENn1FR8cfOTpt8QVbb/P55mYOdahHD4LmHM1W55pNe3j/3od8ELzPf/8eNkkjISQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js" integrity="sha512-cOH8ndwGgPo+K7pTvMrqYbmI8u8k6Sho3js0gOqVWTmQMlLIi6TbqGWRTpf1ga8ci9H3iPsvDLr4X7xwhC/+DQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+    
+    
+    
+    
+    
+  function getRandomEmoji() {
+      const emojis = ['hello', 'Holla', 'ola', 'namaste', 'ciao', 'Bonjour'];
+      return emojis[Math.floor(Math.random() * emojis.length)];
+    }
+    
+    
+    
+
+    // Function to create a random position
+    function getRandomPosition() {
+      const x = Math.random() * window.innerWidth;
+      const y = window.innerHeight + 50;
+      return { x, y };
+    }
+
+    // Function to animate the emoji
+    function animateEmoji(emoji, duration) {
+      const position = getRandomPosition();
+      gsap.fromTo(emoji, {
+        x: position.x,
+        y: position.y,
+        opacity: 0,
+      }, {
+        y: 0,
+        opacity: 1,
+        duration: duration,
+        ease: "power1.inOut",
+        onComplete: () => {
+          document.body.removeChild(emoji);
+        },
+      });
+    }
+
+    // Function to create and animate emojis
+    function createEmoji() {
+      const emoji = document.createElement('div');
+      emoji.innerHTML = getRandomEmoji();
+      emoji.className = 'emoji';
+      document.body.appendChild(emoji);
+
+      const duration = Math.random() * 3 + 2; // Random duration between 2 and 5 seconds
+
+      animateEmoji(emoji, duration);
+    }
+
+    // Create emojis every second
+    setInterval(createEmoji, 1000);
+    </script>
+    
+    
+    
+</body>
+
+
+
+
+</html>

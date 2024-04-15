@@ -187,6 +187,3 @@ const smoother = ScrollSmoother.create({
 });
 
 //smooth scrolling
-
-  
-

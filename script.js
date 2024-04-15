@@ -48,8 +48,8 @@ window.addEventListener("resize", function () {
 
 // Define your image file paths here
 const files = [];
-for (let i = 1; i <= 99; i++) {
-  files.push(`./capsule${i}.png`);
+for (let i = 1; i <= 25; i++) {
+  files.push(`./heart${i}.png`);
 }
 
 const images = [];
@@ -90,7 +90,7 @@ function startAnimationWithTransition() {
   render();
   setTimeout(() => {
     canvas.style.opacity = 1;
-  }, 0.1); // 2 milliseconds delay
+  }, 0); // 2 milliseconds delay
 }
 
 startAnimationWithTransition();
